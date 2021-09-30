@@ -15,7 +15,7 @@ variables:
   webAppName: 'Demo-Linux'
 
   # Environment name
-  environmentName: 'Demo225.Dev.Demo-Linux'
+  environmentName: 'Dev.Demo-Linux'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -52,7 +52,10 @@ stages:
   jobs:
   - deployment: DeployLinuxWebApp
     displayName: Deploy Linux Web App
-    environment: $(environmentName)
+    environment: 
+      name: $(environmentName)
+      resourceType: VirtualMachine
+      tags: demolinux
     pool:
       vmImage: $(vmImageName)
     strategy:
