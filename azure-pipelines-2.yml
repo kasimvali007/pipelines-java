@@ -44,13 +44,14 @@ stages:
 
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
+
 - stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: Demo-Linux
-    displayName: Deploy Linux VM
+  - deployment: DeployLinuxWebApp
+    displayName: Deploy Linux Web App
     environment: $(environmentName)
     pool:
       vmImage: $(vmImageName)
@@ -59,7 +60,7 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: Maven1'
+            displayName: 'Azure Web App Deploy: Demo-Linux'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
