@@ -53,9 +53,9 @@ stages:
   - deployment: deploymentJob
     displayName: WebApp
     environment: 
-      name: Dev12.Demo-Linux
-      resourceType: VirtualMachine
-      tags: demolinux
+      name: Dev12
+      #resourceType: VirtualMachine
+      #tags: demolinux
     pool:
       vmImage: $(vmImageName)
     strategy:
