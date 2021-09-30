@@ -15,7 +15,7 @@ variables:
   webAppName: 'Demo-Linux'
 
   # Environment name
-  environmentName: 'Dev.Demo-Linux'
+  environmentName: 'Dev'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
