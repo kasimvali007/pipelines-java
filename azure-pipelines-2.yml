@@ -50,10 +50,10 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: DeployLinuxWebApp
-    displayName: Deploy Linux Web App
+  - deployment: deploymentJob
+    displayName: Deploy Linux VM
     environment: 
-      name: $(environmentName)
+      name: Dev.Demo-Linux
       resourceType: VirtualMachine
       tags: demolinux
     pool:
