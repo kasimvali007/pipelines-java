@@ -51,7 +51,7 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: deploymentJob
-    displayName: Deploy Linux VM
+    displayName: WebApp
     environment: 
       name: Dev.Demo-Linux
       resourceType: VirtualMachine
@@ -62,10 +62,11 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: Demo-Linux'
-            inputs:
-              azureSubscription: $(azureSubscription)
-              appType: webAppLinux
-              appName: $(webAppName)
-              package: '$(Pipeline.Workspace)/drop/**/target/*.war'
+          - script: echo first deployment
+          # - task: AzureWebApp@1
+          #   displayName: 'Azure Web App Deploy: Demo-Linux'
+          #   inputs:
+          #     azureSubscription: $(azureSubscription)
+          #     appType: webAppLinux
+          #     appName: $(webAppName)
+          #     package: '$(Pipeline.Workspace)/drop/**/target/*.war'
