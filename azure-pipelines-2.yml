@@ -12,10 +12,10 @@ variables:
   azureSubscription: 'cc7f8527-03bf-4475-aa96-fa626c067c5e'
 
   # Web app name
-  webAppName: 'Demo-Linux'
+  webAppName: 'Dev.Demo-Linux'
 
   # Environment name
-  environmentName: 'Dev12'
+  #environmentName: 'Dev12'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -53,9 +53,10 @@ stages:
   - deployment: deploymentJob
     displayName: WebApp
     environment: 
-      name: Dev12
-      #resourceType: VirtualMachine
-      #tags: demolinux
+      name: Dev
+      resourceName: Demo-Linux
+      resourceType: VirtualMachine
+      tags: demolinux
     pool:
       vmImage: $(vmImageName)
     strategy:
